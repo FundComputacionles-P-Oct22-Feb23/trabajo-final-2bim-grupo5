@@ -46,7 +46,7 @@ funcion principal()
 		Fin Si
 		
 		contador <-- contador + 1
-		<< "Si desea continuar en el programa presione 1, de lo contrario 2."
+		<< "Si desea terminar el programa presione 1, de lo contrario 2."
 		>> opcionDos
 
 		Si opcionDos == 1 entonces
