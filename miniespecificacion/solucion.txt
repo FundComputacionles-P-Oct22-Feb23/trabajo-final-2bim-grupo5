@@ -6,6 +6,7 @@ funcion principal()
 	opcionDos, i[0-n]
 	mensaje, x(100)[{A-Z}, {a-z}, {BS}]
 	Mientras bandera == true entonces
+		contador <-- contador + 1
 		<< "Ingrese 1 para crear una cuenta en Facebook\n
 			Ingrese 2 para crear una cuenta en Twitter\n
 			Ingrese 3 para crear una cuenta en Whatsapp\n
@@ -37,6 +38,7 @@ funcion principal()
 									crearFlickr()
 								De lo contrario
 									<< "Error en opción seleccionada."
+									contador <-- 0
 								Fin si
 							Fin si
 						Fin Si
@@ -45,7 +47,6 @@ funcion principal()
 			Fin Si
 		Fin Si
 		
-		contador <-- contador + 1
 		<< "Si desea terminar el programa presione 1, de lo contrario 2."
 		>> opcionDos
 
@@ -53,8 +54,11 @@ funcion principal()
 			bandera <-- false
 		Fin si
 	Fin Mientras
-	mensaje <-- obtenerMensaje(contador)
-	<< "Con número de cuentas " + contador + " es: " + mensaje
+	Si contador > 0 entonces
+		mensaje <-- obtenerMensaje(contador)
+		<< "Con número de cuentas " + contador + " es: " + mensaje
+	Fin si	
+
 Fin funcion principal
 
 funcion crearFacebook()
